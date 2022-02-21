@@ -1,16 +1,21 @@
 # gstin_app
 
-A new Flutter project.
+A flutter app to fetch GST Tax Details via GSTIN number, can also check the GST return filing status.
 
-## Getting Started
+A mock GST API has been used for demonstration purpose: https://gstin.free.beeceptor.com/7136791596473439 for GSTIN Details and 
+https://gstin.free.beeceptor.com/status/7136791596473439 for Return Filing Status.
 
-This project is a starting point for a Flutter application.
+The allowed GSTIN numbers are:
+5479525772218460
+1888240861485630
+5869740055346522
+7136791596473439
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img alt="Screenshot-1" src="https://user-images.githubusercontent.com/40262579/153495831-0d152535-6a1b-41d3-b04b-0ea1996a0004.jpg" width="25%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Screenshot-2" src="https://user-images.githubusercontent.com/40262579/153495834-f5a91608-1725-43f5-ae8b-2bbd29a09713.jpg" width="25%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Screenshot-3" src="https://user-images.githubusercontent.com/40262579/153495838-7bae48ba-b793-4be3-9b69-f871f9c7d719.jpg" width="25%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+</p>
