@@ -63,7 +63,7 @@ class GstReturnStatus {
   });
 
   factory GstReturnStatus.fromJson(Map json) {
-    final int gstNumber = json['gstin'] as int;
+    final int gstNumber = json['gstin'];
     final String status = json['status'];
     return GstReturnStatus(
       gstNumber: gstNumber,

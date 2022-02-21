@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gstin_app/models/gst_model.dart';
 import 'package:gstin_app/services/constants.dart';
-import 'package:gstin_app/services/gst_service.dart';
-import 'package:gstin_app/widgets/card_widget.dart';
-import 'package:gstin_app/widgets/rounded_header.dart';
-import 'package:gstin_app/widgets/text_button_green.dart';
+import 'package:gstin_app/services/state_provider.dart';
+import 'package:gstin_app/widgets/widgets.dart';
 
-class GstDetails extends StatelessWidget {
-  final String gstNumber;
-  GstDetails({required this.gstNumber});
+import 'package:provider/provider.dart';
+
+class GstDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,26 +21,36 @@ class GstDetails extends StatelessWidget {
         ),
         title: const Text('GST Profile'),
       ),
-      body: FutureBuilder<GstModel?>(
-        future: getGstDetails(gstNumber),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
+      body: Consumer<StateNotifier>(
+        builder: (_, notifier, __) {
+          if (notifier.state == AppState.initial) {
+            return const Center(
+              child: Text('Enter GST Number to check GST Details'),
+            );
+          } else if (notifier.state == AppState.loading) {
             return Center(
               child: CircularProgressIndicator(
                 color: green,
               ),
             );
-          } else if (snapshot.connectionState == ConnectionState.done) {
-            // GstMo = snapshot.data!;
-            return SingleChildScrollView(
-              child: TaxDetails(gstModel: snapshot.data!),
-            );
           } else {
-            return Center(
-              child: Text(
-                snapshot.error.toString(),
-              ),
-            );
+            if (notifier.failure != null) {
+              // print('Failure captured: ${notifier.failure}');
+              return ShowAlertDialog(
+                notifier.failure.toString(),
+              );
+              // return Center(
+              //   child: Text(
+              //     notifier.failure.toString(),
+              //   ),
+              // );
+            } else {
+              return SingleChildScrollView(
+                child: TaxDetails(
+                  gstModel: notifier.gstModel,
+                ),
+              );
+            }
           }
         },
       ),
@@ -67,7 +75,7 @@ class TaxDetails extends StatelessWidget {
         const SizedBox(
           height: 50,
         ),
-        buildRetunFilingButton(),
+        buildReturnFilingButton(),
       ],
     );
   }
@@ -139,7 +147,7 @@ class TaxDetails extends StatelessWidget {
     );
   }
 
-  Padding buildRetunFilingButton() {
+  Padding buildReturnFilingButton() {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gstin_app/screens/gst_details.dart';
+import 'package:gstin_app/screens/gst_details_page.dart';
 import 'package:gstin_app/services/constants.dart';
+import 'package:gstin_app/services/state_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchGst extends StatefulWidget {
   @override
@@ -10,6 +12,7 @@ class SearchGst extends StatefulWidget {
 class _SearchGstState extends State<SearchGst> {
   final TextEditingController _textController = TextEditingController();
   String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,16 +56,19 @@ class _SearchGstState extends State<SearchGst> {
               children: [
                 Expanded(
                   child: TextButton(
-                    onPressed: () {
+                    onPressed: () async {
                       setState(() {
-                        searchText = _textController.text;
+                        searchText = _textController.text.trim();
                       });
+                      StateNotifier provider =
+                          Provider.of<StateNotifier>(context, listen: false);
+                      provider.setGstId(searchText);
+                      provider.getGstDetails();
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => GstDetails(
-                            gstNumber: searchText,
-                          ),
+                          builder: (context) => GstDetailsPage(),
                         ),
                       );
                       // getGstDetails(searchText);

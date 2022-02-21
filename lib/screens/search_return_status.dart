@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gstin_app/screens/return_details.dart';
+import 'package:gstin_app/screens/return_details_page.dart';
 import 'package:gstin_app/services/constants.dart';
+import 'package:gstin_app/services/state_provider.dart';
+import 'package:provider/provider.dart';
 
 class ReturnStatus extends StatefulWidget {
   const ReturnStatus({Key? key}) : super(key: key);
@@ -57,14 +59,18 @@ class _ReturnStatusState extends State<ReturnStatus> {
                   child: TextButton(
                     onPressed: () {
                       setState(() {
-                        searchText = _textController.text;
+                        searchText = _textController.text.trim();
                       });
+
+                      StateNotifier provider =
+                          Provider.of<StateNotifier>(context, listen: false);
+                      provider.setGstId(searchText);
+                      provider.getReturnDetails();
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ReturnDetails(
-                            gstNumber: searchText,
-                          ),
+                          builder: (context) => ReturnDetailsPage(),
                         ),
                       );
                     },

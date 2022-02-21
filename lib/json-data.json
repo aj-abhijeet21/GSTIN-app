@@ -1,90 +1,87 @@
-[
 {
-	"firstname": "Jessamyn",
-	"lastname": "Gavrila",
-	"gstin": 1178694735674459,
-	"status": "Active",
-	"date": "1995-04-19",
-	"address1": "5, Begum Sahib 2nd Lane, Annasalai 5, Begum Sahib 2nd Lane, Annasalai",
-	"address2": "Annasalai",
-	"state jurisdiction": "Ward 132",
-	"center jurisdiction": "RANGE - 321",
-	"tax payer type": "HUF",
-	"business type": "Corporations"
-},
-{
-	"firstname": "Nataline",
-	"lastname": "Chabot",
-	"gstin": 5479525772218460,
-	"status": "Active",
-	"date": "1995-01-09",
-	"address1": "Gala No 13, 7, Shailesh Indl Estate, Vasai (west) 401202",
-	"address2": "Shailesh Indl Estate",
-	"state jurisdiction": "Ward 174",
-	"center jurisdiction": "RANGE - 123",
-	"tax payer type": "Individual",
-	"business type": "Corporations"
-},
-{
-	"firstname": "Kaia",
-	"lastname": "Thornburg",
-	"gstin": 1888240861485630,
-	"status": "Active",
-	"date": "1997-04-09",
-	"address1": "1/19, Kishore Bhavan, 29/a V P Road, Girgaon 400004",
-	"address2": "Kishore Bhavan",
-	"state jurisdiction": "Ward 724",
-	"center jurisdiction": "RANGE - 142",
-	"tax payer type": "Individual",
-	"business type": "Limited Liability Company (LLC) "
-},
-{
-	"firstname": "Tersina",
-	"lastname": "Chobot",
-	"gstin": 5869740055346522,
-	"status": "Active",
-	"date": "1991-04-09",
-	"address1": "140-b, Nahar & Seth Ind Est, Lbs Marg, Nr Shangrilla Biscuits, Bhandup (west) ",
-	"address2": "Shangrilla Biscuits",
-	"state jurisdiction": "Ward 794",
-	"center jurisdiction": "RANGE - 412",
-	"tax payer type": "Firm",
-	"business type": "Limited Liability Company (LLC) "
-},
-{
-	"firstname": "Melisent",
-	"lastname": "Harned",
-	"gstin": 7136791596473439,
-	"status": "Active",
-	"date": "1999-04-09",
-	"address1": "A 52, Abv Bhandari Medicos, Pandav Nagar 110008",
-	"address2": "Abv Bhandari Medicos",
-	"state jurisdiction": "Ward 14",
-	"center jurisdiction": "RANGE - 139",
-	"tax payer type": "AOP",
-	"business type": "Sole Proprietorships"
+	[
+		{
+			"firstname": "Jessamyn",
+			"lastname": "Gavrila",
+			"gstin": 1178694735674459,
+			"status": "Active",
+			"date": "1995-04-19",
+			"address1": "5, Begum Sahib 2nd Lane, Annasalai 5, Begum Sahib 2nd Lane, Annasalai",
+			"address2": "Annasalai",
+			"state jurisdiction": "Ward 132",
+			"center jurisdiction": "RANGE - 321",
+			"tax payer type": "HUF",
+			"business type": "Corporations"
+		},
+		{
+			"firstname": "Nataline",
+			"lastname": "Chabot",
+			"gstin": 5479525772218460,
+			"status": "Active",
+			"date": "1995-01-09",
+			"address1": "Gala No 13, 7, Shailesh Indl Estate, Vasai (west) 401202",
+			"address2": "Shailesh Indl Estate",
+			"state jurisdiction": "Ward 174",
+			"center jurisdiction": "RANGE - 123",
+			"tax payer type": "Individual",
+			"business type": "Corporations"
+		},
+		{
+			"firstname": "Kaia",
+			"lastname": "Thornburg",
+			"gstin": 1888240861485630,
+			"status": "Active",
+			"date": "1997-04-09",
+			"address1": "1/19, Kishore Bhavan, 29/a V P Road, Girgaon 400004",
+			"address2": "Kishore Bhavan",
+			"state jurisdiction": "Ward 724",
+			"center jurisdiction": "RANGE - 142",
+			"tax payer type": "Individual",
+			"business type": "Limited Liability Company (LLC) "
+		},
+		{
+			"firstname": "Tersina",
+			"lastname": "Chobot",
+			"gstin": 5869740055346522,
+			"status": "Active",
+			"date": "1991-04-09",
+			"address1": "140-b, Nahar & Seth Ind Est, Lbs Marg, Nr Shangrilla Biscuits, Bhandup (west) ",
+			"address2": "Shangrilla Biscuits",
+			"state jurisdiction": "Ward 794",
+			"center jurisdiction": "RANGE - 412",
+			"tax payer type": "Firm",
+			"business type": "Limited Liability Company (LLC) "
+		},
+		{
+			"firstname": "Melisent",
+			"lastname": "Harned",
+			"gstin": 7136791596473439,
+			"status": "Active",
+			"date": "1999-04-09",
+			"address1": "A 52, Abv Bhandari Medicos, Pandav Nagar 110008",
+			"address2": "Abv Bhandari Medicos",
+			"state jurisdiction": "Ward 14",
+			"center jurisdiction": "RANGE - 139",
+			"tax payer type": "AOP",
+			"business type": "Sole Proprietorships"
+		}
+	],
+	[
+		{
+			"gstin": 5479525772218460,
+			"status": "Not paid",
+		},
+		{
+			"gstin": 1888240861485630,
+			"status": "Partially paid",
+		},
+		{
+			"gstin": 5869740055346522,
+			"status": "Fully paid",
+		},
+		{
+			"gstin": 7136791596473439,
+			"status": "Overdue",
+		}
+	]
 }
-
-]
-
-[
-	{
-		"gstin": 5479525772218460,
-		"status": "Not paid",
-	},
-	
-	{
-		"gstin": 1888240861485630,
-		"status": "Partially paid",
-	},
-	
-	{
-		"gstin": 5869740055346522,
-		"status": "Fully paid",
-	},
-	
-	{
-		"gstin": 7136791596473439,
-		"status": "Overdue",
-	}
-]

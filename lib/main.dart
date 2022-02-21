@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gstin_app/screens/home.dart';
+import 'package:gstin_app/services/state_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => StateNotifier(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gstin_app/models/gst_model.dart';
 import 'package:gstin_app/services/constants.dart';
-import 'package:gstin_app/services/gst_service.dart';
-import 'package:gstin_app/widgets/card_widget.dart';
+import 'package:gstin_app/services/state_provider.dart';
+import 'package:gstin_app/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
-class ReturnDetails extends StatelessWidget {
-  final String gstNumber;
-  ReturnDetails({required this.gstNumber});
+class ReturnDetailsPage extends StatelessWidget {
+  // final String gstNumber;
+  // ReturnDetails({required this.gstNumber});
+  // GstService gstService = GstService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,27 +23,36 @@ class ReturnDetails extends StatelessWidget {
         ),
         title: const Text('GST Return Status'),
       ),
-      body: FutureBuilder<GstReturnStatus?>(
-        future: getReturnDetails(gstNumber),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
+      body: Consumer<StateNotifier>(
+        builder: (_, notifier, __) {
+          if (notifier.state == AppState.initial) {
+            return const Center(
+              child: Text('Enter GST Number to check Return Status'),
+            );
+          } else if (notifier.state == AppState.loading) {
             return Center(
               child: CircularProgressIndicator(
                 color: green,
               ),
             );
-          } else if (snapshot.connectionState == ConnectionState.done) {
-            return Center(
-              child: BuildReturnDetails(
-                gstReturnStatus: snapshot.data!,
-              ),
-            );
           } else {
-            return Center(
-              child: Text(
-                snapshot.error.toString(),
-              ),
-            );
+            if (notifier.failure != null) {
+              // print('Failure captured: ${notifier.failure}');
+              return ShowAlertDialog(
+                notifier.failure.toString(),
+              );
+              // return Center(
+              //   child: Text(
+              //     notifier.failure.toString(),
+              //   ),
+              // );
+            } else {
+              return SingleChildScrollView(
+                child: BuildReturnDetails(
+                  gstReturnStatus: notifier.gstReturnStatus,
+                ),
+              );
+            }
           }
         },
       ),

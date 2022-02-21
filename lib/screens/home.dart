@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gstin_app/services/constants.dart';
 import 'package:gstin_app/screens/search_return_status.dart';
 import 'package:gstin_app/screens/search_gst.dart';
-import 'package:gstin_app/widgets/rounded_header.dart';
+import 'package:gstin_app/widgets/widgets.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               child: TabBarView(
                 children: [
                   SearchGst(),
-                  ReturnStatus(),
+                  const ReturnStatus(),
                 ],
               ),
             ),
